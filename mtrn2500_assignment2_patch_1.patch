@@ -1,0 +1,792 @@
+From 4e29ff7fbf35bad47ecd12684d1be76dd8e2e628 Mon Sep 17 00:00:00 2001
+From: Luke Dennis <luke.j.dennis@gmail.com>
+Date: Sat, 26 Oct 2019 12:19:36 +1100
+Subject: [PATCH 1/7] Fix errors and add detail to instructions
+
+Missing detail for students who have never used git or to whom linux is new and unknown.
+---
+ README.md | 58 +++++++++++++++++++++++++++++++++----------------------
+ 1 file changed, 35 insertions(+), 23 deletions(-)
+
+diff --git a/README.md b/README.md
+index a7f9262..1fe0f84 100644
+--- a/README.md
++++ b/README.md
+@@ -1,23 +1,35 @@
+-# UNSW MTRN2500 2019 S3 Assignment 2
+-
+-Assignment specification is available in assignment2_spec.md
+-
+-Setup instruction:
+-
+-Must delete `mtrn2500_ws/old_src`
+-
+-1. Clone your assignment repository:
+-2. `cd ~/mtrn2500_ws`
+-3. `git clone url` where `url` is your assignment git repository.
+-
+-Launch rviz2
+-
+-4.  `ctrl + shift + T`
+-5. `. mtrn2500_make`
+-6. `ros2 launch assignment2 rviz2.py`
+-
+-Run assignment2:
+-
+-7.  `ctrl + shift + T`
+-8. `. mtrn2500_make`
+-9. `ros2 run assignment2 assignment2`
++# UNSW MTRN2500 2019 T3 Assignment 2
++
++The assignment specification is available in `assignment2_spec.md`
++
++Setup instructions:
++
++1. Open a terminal and navigate to the ROS workspace:
++  a. `ctrl + alt + t`
++  b. `cd ~/mtrn2500_ws`
++2. Remove the `old_src` directory (folder):
++     `rm -r old_src`
++3. Set up public key with VM and github account:
++  a. https://help.github.com/en/github/authenticating-to-github/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent
++  b. https://help.github.com/en/github/authenticating-to-github/adding-a-new-ssh-key-to-your-github-account
++4. Clone (copy) your assignment repository:
++    `git clone url` where `url` is your assignment git repository.
++    - The repository url should look like git@github.com:UNSW-MTRN2500/assignment2-YOUR_USER_NAME.git and can be found by clicking the "clone or download" button on the repo home page.
++
++Launching the visualisation environment rviz2:
++
++1. Open a new terminal or another terminal tab 
++    `ctrl + alt + t` or `ctrl + shift + T`
++2. Complile: 
++    `. mtrn2500_make`
++3. Run the visualisation node
++    `ros2 launch assignment2 rviz2.py`
++
++Compile and run assignment2:
++
++4. Start another terminal tab 
++    `ctrl + shift + T`
++5. Complile: 
++    `. mtrn2500_make`
++6. Run the assignment2 node (will only do something once you've implemented it)
++    `ros2 run assignment2 assignment2`
+-- 
+2.17.1
+
+
+From 97315e163d5d43087b0c96225a1b5a5ef44700a8 Mon Sep 17 00:00:00 2001
+From: Luke Dennis <luke.j.dennis@gmail.com>
+Date: Sat, 26 Oct 2019 12:40:42 +1100
+Subject: [PATCH 2/7] Edit layout
+
+---
+ README.md | 51 +++++++++++++++++++++++++--------------------------
+ 1 file changed, 25 insertions(+), 26 deletions(-)
+
+diff --git a/README.md b/README.md
+index 1fe0f84..eb18a6d 100644
+--- a/README.md
++++ b/README.md
+@@ -2,34 +2,33 @@
+ 
+ The assignment specification is available in `assignment2_spec.md`
+ 
+-Setup instructions:
+ 
+-1. Open a terminal and navigate to the ROS workspace:
+-  a. `ctrl + alt + t`
+-  b. `cd ~/mtrn2500_ws`
+-2. Remove the `old_src` directory (folder):
+-     `rm -r old_src`
+-3. Set up public key with VM and github account:
+-  a. https://help.github.com/en/github/authenticating-to-github/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent
+-  b. https://help.github.com/en/github/authenticating-to-github/adding-a-new-ssh-key-to-your-github-account
+-4. Clone (copy) your assignment repository:
+-    `git clone url` where `url` is your assignment git repository.
+-    - The repository url should look like git@github.com:UNSW-MTRN2500/assignment2-YOUR_USER_NAME.git and can be found by clicking the "clone or download" button on the repo home page.
+-
+-Launching the visualisation environment rviz2:
++#### Setup instructions:
+ 
+-1. Open a new terminal or another terminal tab 
+-    `ctrl + alt + t` or `ctrl + shift + T`
+-2. Complile: 
+-    `. mtrn2500_make`
+-3. Run the visualisation node
+-    `ros2 launch assignment2 rviz2.py`
++1. Open a terminal and navigate to the ROS workspace:  
++    a. `ctrl + alt + t`
++    b. `cd ~/mtrn2500_ws`      
++2. Remove the `old_src` directory (folder):  
++     `rm -r old_src`  
++3. Set up public key with VM and github account:  
++    a. https://help.github.com/en/github/authenticating-to-github/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent  
++    b. https://help.github.com/en/github/authenticating-to-github/adding-a-new-ssh-key-to-your-github-account  
++4. Clone (copy) your assignment repository:  
++    `git clone url` where `url` is your assignment git repository.  
++    - The repository url should look like git@github.com:UNSW-MTRN2500/assignment2-YOUR_USER_NAME.git and can be found by clicking the "clone or download" button on the repo home page.
+ 
+-Compile and run assignment2:
++#### Launching the visualisation environment rviz2:  
++1. Open a new terminal or another terminal tab  
++    `ctrl + alt + t` or `ctrl + shift + T`  
++2. Complile:  
++    `. mtrn2500_make`  
++3. Run the visualisation node  
++    `ros2 launch assignment2 rviz2.py`  
+ 
+-4. Start another terminal tab 
+-    `ctrl + shift + T`
+-5. Complile: 
+-    `. mtrn2500_make`
+-6. Run the assignment2 node (will only do something once you've implemented it)
++#### Then compile and run assignment2:  
++4. Start another terminal tab  
++    `ctrl + shift + T`  
++5. Complile:  
++    `. mtrn2500_make`  
++6. Run the assignment2 node (will only do something once you've implemented it)    
+     `ros2 run assignment2 assignment2`
+-- 
+2.17.1
+
+
+From fbfbe5e94e020b036e16d61bd48b5dd219a76b57 Mon Sep 17 00:00:00 2001
+From: Zhihao Zhang <zhihao.zhang1@unsw.edu.au>
+Date: Wed, 30 Oct 2019 11:56:49 +1100
+Subject: [PATCH 3/7] fix transform_node and marker_node using the wrong name
+
+---
+ include/student_helper.hpp | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/include/student_helper.hpp b/include/student_helper.hpp
+index 04d4415..751bf30 100644
+--- a/include/student_helper.hpp
++++ b/include/student_helper.hpp
+@@ -31,11 +31,11 @@ auto constexpr pose_node_name = [](std::string const & zid) {
+ };
+ 
+ auto constexpr marker_node_name = [](std::string const & zid) {
+-    return zid + "_pose_node";
++    return zid + "_marker_node";
+ };
+ 
+ auto constexpr transform_node_name = [](std::string const & zid) {
+-    return zid + "_pose_node";
++    return zid + "_transform_node";
+ };
+ 
+ } // namespace helper
+-- 
+2.17.1
+
+
+From 67d97b01945bd5eb2ca6ce235d267b82ec9efb4b Mon Sep 17 00:00:00 2001
+From: Zhihao Zhang <zhihao.zhang1@unsw.edu.au>
+Date: Wed, 30 Oct 2019 14:57:41 +1100
+Subject: [PATCH 4/7] fix rviz not loading config properly and transform not
+ working.
+
+---
+ README.md                     |  11 ++-
+ launch/rviz2.py               |   2 -
+ launch/rviz2_config.rviz      |  18 ++++-
+ launch/rviz_task0_config.rviz | 139 ++++++++++++++++++++++++++++++++++
+ launch/rviz_task2_config.rviz | 138 +++++++++++++++++++++++++++++++++
+ src/main.cpp                  |  15 ++--
+ src/transform_broadcaster.cpp |   2 +-
+ 7 files changed, 311 insertions(+), 14 deletions(-)
+ create mode 100644 launch/rviz_task0_config.rviz
+ create mode 100644 launch/rviz_task2_config.rviz
+
+diff --git a/README.md b/README.md
+index eb18a6d..d90c50c 100644
+--- a/README.md
++++ b/README.md
+@@ -22,8 +22,15 @@ The assignment specification is available in `assignment2_spec.md`
+     `ctrl + alt + t` or `ctrl + shift + T`  
+ 2. Complile:  
+     `. mtrn2500_make`  
+-3. Run the visualisation node  
+-    `ros2 launch assignment2 rviz2.py`  
++~3. Run the visualisation node~  
++~`ros2 launch assignment2 rviz2.py`~ 
++ Previous launch script was not working. 
++3. Start rviz2:
++    `ros2 run rviz2 rviz2`
++4. Config rviz2 by clicking on `file` in rviz2 and select open config. There are two new config file in the launch folder.
++    * `rviz_task0_config.rviz` set the global frame to `z0000000/local_frame`, this will show a rectangle marker at the origin. This works does not require working transform broadcast.
++    * `rviz_task0_config.rviz` set the global frame to `world_frame`, the provided `TranformBroadcaster` provided node will calculate send the required `world_frame` to `z0000000/local_frame` transform based on `z0000000/pose` message. Working task 2 is required for this.
++`
+ 
+ #### Then compile and run assignment2:  
+ 4. Start another terminal tab  
+diff --git a/launch/rviz2.py b/launch/rviz2.py
+index d038f22..3e11ed5 100644
+--- a/launch/rviz2.py
++++ b/launch/rviz2.py
+@@ -6,7 +6,6 @@ import launch_ros.actions
+ from ament_index_python.packages import get_package_share_directory
+ 
+ package_name = "assignment2"
+-game_master_namespace = "/z0000000"
+ 
+ rviz2_config =  os.path.join(
+         get_package_share_directory(package_name),
+@@ -23,6 +22,5 @@ def generate_launch_description():
+             node_executable="rviz2",
+             output="screen",
+             arguments = [rviz2_launch_param],
+-            node_namespace = game_master_namespace,
+         ),
+     ])
+diff --git a/launch/rviz2_config.rviz b/launch/rviz2_config.rviz
+index 7ec2d4d..103767a 100644
+--- a/launch/rviz2_config.rviz
++++ b/launch/rviz2_config.rviz
+@@ -48,15 +48,29 @@ Visualization Manager:
+       Enabled: true
+       Name: Marker
+       Namespaces:
+-        z0000000: true
++        {}
+       Queue Size: 10
+       Topic: /z0000000/marker
+       Unreliable: false
+       Value: true
++    - Class: rviz_default_plugins/TF
++      Enabled: true
++      Frame Timeout: 15
++      Frames:
++        All Enabled: true
++      Marker Scale: 1
++      Name: TF
++      Show Arrows: true
++      Show Axes: true
++      Show Names: false
++      Tree:
++        {}
++      Update Interval: 0
++      Value: true
+   Enabled: true
+   Global Options:
+     Background Color: 48; 48; 48
+-    Fixed Frame: z0000000/local_frame
++    Fixed Frame: z0000000/world_frame
+     Frame Rate: 30
+   Name: root
+   Tools:
+diff --git a/launch/rviz_task0_config.rviz b/launch/rviz_task0_config.rviz
+new file mode 100644
+index 0000000..45c68a4
+--- /dev/null
++++ b/launch/rviz_task0_config.rviz
+@@ -0,0 +1,139 @@
++Panels:
++  - Class: rviz_common/Displays
++    Help Height: 78
++    Name: Displays
++    Property Tree Widget:
++      Expanded:
++        - /Global Options1
++        - /Status1
++        - /Grid1
++        - /Marker1
++        - /TF1/Frames1
++        - /TF1/Frames1/z0000000/local_frame1
++      Splitter Ratio: 0.5
++    Tree Height: 716
++  - Class: rviz_common/Selection
++    Name: Selection
++  - Class: rviz_common/Tool Properties
++    Expanded:
++      - /2D Nav Goal1
++      - /Publish Point1
++    Name: Tool Properties
++    Splitter Ratio: 0.5886790156364441
++  - Class: rviz_common/Views
++    Expanded:
++      - /Current View1
++    Name: Views
++    Splitter Ratio: 0.5
++Visualization Manager:
++  Class: ""
++  Displays:
++    - Alpha: 0.5
++      Cell Size: 1
++      Class: rviz_default_plugins/Grid
++      Color: 160; 160; 164
++      Enabled: true
++      Line Style:
++        Line Width: 0.029999999329447746
++        Value: Lines
++      Name: Grid
++      Normal Cell Count: 0
++      Offset:
++        X: 0
++        Y: 0
++        Z: 0
++      Plane: XY
++      Plane Cell Count: 10
++      Reference Frame: <Fixed Frame>
++      Value: true
++    - Class: rviz_default_plugins/Marker
++      Enabled: true
++      Name: Marker
++      Namespaces:
++        z0000000: true
++      Queue Size: 10
++      Topic: /z0000000/marker
++      Unreliable: false
++      Value: true
++    - Class: rviz_default_plugins/TF
++      Enabled: true
++      Frame Timeout: 15
++      Frames:
++        All Enabled: true
++        world_frame:
++          Value: true
++        z0000000/local_frame:
++          Value: true
++      Marker Scale: 1
++      Name: TF
++      Show Arrows: true
++      Show Axes: true
++      Show Names: false
++      Tree:
++        world_frame:
++          z0000000/local_frame:
++            {}
++      Update Interval: 0
++      Value: true
++  Enabled: true
++  Global Options:
++    Background Color: 48; 48; 48
++    Fixed Frame: z0000000/local_frame
++    Frame Rate: 30
++  Name: root
++  Tools:
++    - Class: rviz_default_plugins/MoveCamera
++    - Class: rviz_default_plugins/Select
++    - Class: rviz_default_plugins/FocusCamera
++    - Class: rviz_default_plugins/Measure
++      Line color: 128; 128; 0
++    - Class: rviz_default_plugins/SetInitialPose
++      Topic: /initialpose
++    - Class: rviz_default_plugins/SetGoal
++      Topic: /move_base_simple/goal
++    - Class: rviz_default_plugins/PublishPoint
++      Single click: true
++      Topic: /clicked_point
++  Transformation:
++    Current:
++      Class: rviz_default_plugins/TF
++  Value: true
++  Views:
++    Current:
++      Class: rviz_default_plugins/Orbit
++      Distance: 22.106815338134766
++      Enable Stereo Rendering:
++        Stereo Eye Separation: 0.05999999865889549
++        Stereo Focal Distance: 1
++        Swap Stereo Eyes: false
++        Value: false
++      Focal Point:
++        X: 0
++        Y: 0
++        Z: 0
++      Focal Shape Fixed Size: true
++      Focal Shape Size: 0.05000000074505806
++      Invert Z Axis: false
++      Name: Current View
++      Near Clip Distance: 0.009999999776482582
++      Pitch: 0.785398006439209
++      Target Frame: <Fixed Frame>
++      Value: Orbit (rviz)
++      Yaw: 0.785398006439209
++    Saved: ~
++Window Geometry:
++  Displays:
++    collapsed: false
++  Height: 945
++  Hide Left Dock: false
++  Hide Right Dock: false
++  QMainWindow State: 000000ff00000000fd00000004000000000000015600000357fc0200000008fb0000001200530065006c0065006300740069006f006e00000001e10000009b0000005c00fffffffb0000001e0054006f006f006c002000500072006f007000650072007400690065007302000001ed000001df00000185000000a3fb000000120056006900650077007300200054006f006f02000001df000002110000018500000122fb000000200054006f006f006c002000500072006f0070006500720074006900650073003203000002880000011d000002210000017afb000000100044006900730070006c006100790073010000003d00000357000000c900fffffffb0000002000730065006c0065006300740069006f006e00200062007500660066006500720200000138000000aa0000023a00000294fb00000014005700690064006500530074006500720065006f02000000e6000000d2000003ee0000030bfb0000000c004b0069006e0065006300740200000186000001060000030c00000261000000010000010f00000357fc0200000003fb0000001e0054006f006f006c002000500072006f00700065007200740069006500730100000041000000780000000000000000fb0000000a00560069006500770073010000003d00000357000000a400fffffffb0000001200530065006c0065006300740069006f006e010000025a000000b200000000000000000000000200000490000000a9fc0100000001fb0000000a00560069006500770073030000004e00000080000002e10000019700000003000004420000003efc0100000002fb0000000800540069006d00650100000000000004420000000000000000fb0000000800540069006d006501000000000000045000000000000000000000047d0000035700000004000000040000000800000008fc0000000100000002000000010000000a0054006f006f006c00730100000000ffffffff0000000000000000
++  Selection:
++    collapsed: false
++  Tool Properties:
++    collapsed: false
++  Views:
++    collapsed: false
++  Width: 1774
++  X: 67
++  Y: 27
+diff --git a/launch/rviz_task2_config.rviz b/launch/rviz_task2_config.rviz
+new file mode 100644
+index 0000000..d8db498
+--- /dev/null
++++ b/launch/rviz_task2_config.rviz
+@@ -0,0 +1,138 @@
++Panels:
++  - Class: rviz_common/Displays
++    Help Height: 78
++    Name: Displays
++    Property Tree Widget:
++      Expanded:
++        - /Global Options1
++        - /Status1
++        - /Grid1
++        - /Marker1
++        - /TF1/Frames1
++      Splitter Ratio: 0.5
++    Tree Height: 716
++  - Class: rviz_common/Selection
++    Name: Selection
++  - Class: rviz_common/Tool Properties
++    Expanded:
++      - /2D Nav Goal1
++      - /Publish Point1
++    Name: Tool Properties
++    Splitter Ratio: 0.5886790156364441
++  - Class: rviz_common/Views
++    Expanded:
++      - /Current View1
++    Name: Views
++    Splitter Ratio: 0.5
++Visualization Manager:
++  Class: ""
++  Displays:
++    - Alpha: 0.5
++      Cell Size: 1
++      Class: rviz_default_plugins/Grid
++      Color: 160; 160; 164
++      Enabled: true
++      Line Style:
++        Line Width: 0.029999999329447746
++        Value: Lines
++      Name: Grid
++      Normal Cell Count: 0
++      Offset:
++        X: 0
++        Y: 0
++        Z: 0
++      Plane: XY
++      Plane Cell Count: 10
++      Reference Frame: <Fixed Frame>
++      Value: true
++    - Class: rviz_default_plugins/Marker
++      Enabled: true
++      Name: Marker
++      Namespaces:
++        z0000000: true
++      Queue Size: 10
++      Topic: /z0000000/marker
++      Unreliable: false
++      Value: true
++    - Class: rviz_default_plugins/TF
++      Enabled: true
++      Frame Timeout: 15
++      Frames:
++        All Enabled: true
++        world_frame:
++          Value: true
++        z0000000/local_frame:
++          Value: true
++      Marker Scale: 1
++      Name: TF
++      Show Arrows: true
++      Show Axes: true
++      Show Names: false
++      Tree:
++        world_frame:
++          z0000000/local_frame:
++            {}
++      Update Interval: 0
++      Value: true
++  Enabled: true
++  Global Options:
++    Background Color: 48; 48; 48
++    Fixed Frame: world_frame
++    Frame Rate: 30
++  Name: root
++  Tools:
++    - Class: rviz_default_plugins/MoveCamera
++    - Class: rviz_default_plugins/Select
++    - Class: rviz_default_plugins/FocusCamera
++    - Class: rviz_default_plugins/Measure
++      Line color: 128; 128; 0
++    - Class: rviz_default_plugins/SetInitialPose
++      Topic: /initialpose
++    - Class: rviz_default_plugins/SetGoal
++      Topic: /move_base_simple/goal
++    - Class: rviz_default_plugins/PublishPoint
++      Single click: true
++      Topic: /clicked_point
++  Transformation:
++    Current:
++      Class: rviz_default_plugins/TF
++  Value: true
++  Views:
++    Current:
++      Class: rviz_default_plugins/Orbit
++      Distance: 22.106815338134766
++      Enable Stereo Rendering:
++        Stereo Eye Separation: 0.05999999865889549
++        Stereo Focal Distance: 1
++        Swap Stereo Eyes: false
++        Value: false
++      Focal Point:
++        X: 0
++        Y: 0
++        Z: 0
++      Focal Shape Fixed Size: true
++      Focal Shape Size: 0.05000000074505806
++      Invert Z Axis: false
++      Name: Current View
++      Near Clip Distance: 0.009999999776482582
++      Pitch: 0.785398006439209
++      Target Frame: <Fixed Frame>
++      Value: Orbit (rviz)
++      Yaw: 0.785398006439209
++    Saved: ~
++Window Geometry:
++  Displays:
++    collapsed: false
++  Height: 945
++  Hide Left Dock: false
++  Hide Right Dock: false
++  QMainWindow State: 000000ff00000000fd00000004000000000000015600000357fc0200000008fb0000001200530065006c0065006300740069006f006e00000001e10000009b0000005c00fffffffb0000001e0054006f006f006c002000500072006f007000650072007400690065007302000001ed000001df00000185000000a3fb000000120056006900650077007300200054006f006f02000001df000002110000018500000122fb000000200054006f006f006c002000500072006f0070006500720074006900650073003203000002880000011d000002210000017afb000000100044006900730070006c006100790073010000003d00000357000000c900fffffffb0000002000730065006c0065006300740069006f006e00200062007500660066006500720200000138000000aa0000023a00000294fb00000014005700690064006500530074006500720065006f02000000e6000000d2000003ee0000030bfb0000000c004b0069006e0065006300740200000186000001060000030c00000261000000010000010f00000357fc0200000003fb0000001e0054006f006f006c002000500072006f00700065007200740069006500730100000041000000780000000000000000fb0000000a00560069006500770073010000003d00000357000000a400fffffffb0000001200530065006c0065006300740069006f006e010000025a000000b200000000000000000000000200000490000000a9fc0100000001fb0000000a00560069006500770073030000004e00000080000002e10000019700000003000004420000003efc0100000002fb0000000800540069006d00650100000000000004420000000000000000fb0000000800540069006d006501000000000000045000000000000000000000047d0000035700000004000000040000000800000008fc0000000100000002000000010000000a0054006f006f006c00730100000000ffffffff0000000000000000
++  Selection:
++    collapsed: false
++  Tool Properties:
++    collapsed: false
++  Views:
++    collapsed: false
++  Width: 1774
++  X: 67
++  Y: 27
+diff --git a/src/main.cpp b/src/main.cpp
+index 144a8a1..53fbc12 100644
+--- a/src/main.cpp
++++ b/src/main.cpp
+@@ -17,6 +17,7 @@
+ #include "transform_broadcaster.hpp"
+ #include "velocity_kinematic.hpp"
+ 
++#include <chrono> // chrono_literals, https://en.cppreference.com/w/cpp/header/chrono
+ #include <fstream> // ifstream, https://en.cppreference.com/w/cpp/header/fstream
+ #include <iostream> // cout, https://en.cppreference.com/w/cpp/header/iostream
+ #include <memory> // make_shared, https://en.cppreference.com/w/cpp/header/memory
+@@ -73,6 +74,8 @@ auto create_visualisation_node(
+ 
+ auto main(int argc, char * argv[]) -> int
+ {
++    using namespace std::chrono_literals;
++
+     try
+     {
+         rclcpp::init(argc, argv); // Initialise ROS2
+@@ -92,17 +95,15 @@ auto main(int argc, char * argv[]) -> int
+             "z0000000", config.get_joystick_config());
+         ros_worker.add_node(input_node);
+ 
+-        auto velocity_node =
+-            std::make_shared<assignment2::VelocityKinematic>("z0000000",
+-                config.get_refresh_period(), config.get_kinematic_config());
++        auto velocity_node = std::make_shared<assignment2::VelocityKinematic>(
++            "z0000000", 200ms, config.get_kinematic_config());
+         ros_worker.add_node(velocity_node);
+ 
+-        auto pose_node = std::make_shared<assignment2::PoseKinematic>(
+-            "z0000000", config.get_refresh_period());
++        auto pose_node =
++            std::make_shared<assignment2::PoseKinematic>("z0000000", 100ms);
+         ros_worker.add_node(pose_node);
+ 
+-        auto visual_node =
+-            create_visualisation_node("z0000000", config.get_refresh_period());
++        auto visual_node = create_visualisation_node("z0000000", 100ms);
+         ros_worker.add_node(visual_node);
+ 
+         auto transform_node =
+diff --git a/src/transform_broadcaster.cpp b/src/transform_broadcaster.cpp
+index 327870f..fed0204 100644
+--- a/src/transform_broadcaster.cpp
++++ b/src/transform_broadcaster.cpp
+@@ -29,7 +29,7 @@ auto TransformBroadcaster::incoming_callback(
+     {
+         auto transform_message =
+             std::make_unique<geometry_msgs::msg::TransformStamped>();
+-        transform_message->header.frame_id = helper::world_frame_name(zid_);
++        transform_message->header.frame_id = "world_frame";
+         transform_message->header.stamp = pose_message->header.stamp;
+         transform_message->child_frame_id = helper::local_frame_name(zid_);
+ 
+-- 
+2.17.1
+
+
+From 2e477b6540e7a31a48cc1c06332294e1f4f88e1c Mon Sep 17 00:00:00 2001
+From: Zhihao Zhang <zhihao.zhang1@unsw.edu.au>
+Date: Wed, 30 Oct 2019 15:31:07 +1100
+Subject: [PATCH 5/7] add faq
+
+---
+ README.md | 74 +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ 1 file changed, 74 insertions(+)
+
+diff --git a/README.md b/README.md
+index d90c50c..d888e2f 100644
+--- a/README.md
++++ b/README.md
+@@ -39,3 +39,77 @@ The assignment specification is available in `assignment2_spec.md`
+     `. mtrn2500_make`  
+ 6. Run the assignment2 node (will only do something once you've implemented it)    
+     `ros2 run assignment2 assignment2`
++
++## FAQ
++
++### Q: Why do I need to create the review branch now?
++A: The purpose of the review branch is for you to be able to create a pull request with all the commit you have made. By getting you to make the review branch at the start of the project, all the commit you make to the master branch from now on will show up when you make the pull request. This way the tutor will be able to access all of your work.
++
++### Q: Will my work be assessed on the master or review branch?
++A: Your last commit to the master branch before the assignment due date will be counted as your submission. You should not be pulling any code into the review branch. You just need to make a pull request from the master branch to the review branch, it will automatically be kept up to date as you add commit to the master branch.
++
++### Q: Is the following the style guide mandatory?
++A: Yes, it is important to keep a code base nicely formatted, this make the code easier to understand for other people that are also working on the same project. For lots of the stylistic choices, there are often no clear best option, the key is to pick one style and follow it consistently. The style guide is the documentation of the choices selected for the project. When you are working with an existing code base, you should follow their existing style.
++
++ ### Q: How can I check if task 0 is working correctly.
++A: You can list all the topic that currently exist with the command:
++
++`ros2 topic list`
++
++You can display message sent to a topic with the command:
++
++`ros2 topic echo topic_id`
++
++### Q: Why is my VirtualBox installation on macOS failing?
++A: macOS can prevent VirtualBox from installing correctly due to the default setting where only applications from the App Store are permitted to be installed. To fix this:
++
++* Go to System
++* Click on Security and Privacy
++* Near the bottom of the window, you will find a button that will allow you to override the default behaviour of macOS that prevents you from installing it (as it is not from the App Store).
++
++### Q: I get an error saying "Missing VirtualBox Extension Pack", why?
++A: In order for the VM to function correctly, you need to have the VirtualBox Extension Pack installed. Download this from the same Oracle website that you used to install VirtualBox, and double click on the file. This will provoke VirtualBox to install this extension pack. Ensure that it is installed successfully.
++
++ 
++### Q: I haven't changed any settings on the VM yet it won't start, why?
++A: Please ensure that you have installed VirtualBox and it's relevant extension pack successfully. In some cases, VirtualBox can appear to install correctly however it still fails. In that case, re-install VirtualBox and ensure that it informs you that it has installed successfully. If you have already ensured that everything has been installed correctly, you may have invalid VM settings. The default RAM allocation is 8192MB and the default CPU core allocation is 2 CPU cores. On physical machines (such as a laptop or desktop computer), you must first verify how much RAM is installed and how many cores your machine has.
++
++ 
++You may need to change the VM settings. You can access the settings by ensuring that the correct VM is highlighted, and clicking the settings button at the top of the VirtualBox window. Click on the System tab. If you have less than 16GB of RAM on your machine, ensure that the RAM allocation is half of the RAM available on your machine. If your machine has 8GB of RAM installed, set this value to 4096MB (4GB). With 4GB of installed RAM, set it to 2048MB (2GB) of RAM, and so on. If your machine has 3 or less cores, set the CPU core allocation to 1.
++
++ ### Q: vscode flashes on the VM, and it's getting really annoying...
++A: When starting vscode using the code command, instead start it with `code --disable-gpu`. Alternatively, run:
++
++`echo "alias code=\"code --disable-gpu\"" >> ~/.bash_aliases`
++
++then close all terminals, start vscode using the `code` command as normal and the flashing should not be present anymore.
++ 
++### Q: How do I create a shared folder so I can transfer files between my VM and host machine?
++A: Create a shared folder (sf) in the VirtualBox (vbox) settings by adding a folder, selecting the folder within the directory you want and selecting auto mount. This will mount the folder in `/media/sf_FOLDER_NAME`. By default the user is root and the group is vboxsf. Students need to add their user to that group. You can add your username by running `sudo adduser $USER vboxsf` in a terminal and rebooting to take effect. They will now be able to open the folder (will show up on the desktop) without entering a password.
++
++Mac (and Linux) users are now finished.
++
++Windows have shared privileges off by default so they will have to open the shared folder in file explorer:
++	
++* Right click Preferences > Sharing > Advanced settings
++* Select share.
++
++You will now be able to edit files in both and once they refresh whatever they have it open in the changes from the other will appear.
++
++ 
++
++### Q: I'm having problems saving files I edit when I used the `gedit` text editor, how can I work around this problem?
++A: See this link: https://askubuntu.com/questions/537799/save-in-gedit-without-in-virtualbox#538095
++
++ 
++### Q: Suggested Task 1 Starting point
++Study the ros2 tutorial section of assignment 2 spec. Start task 1 by subscribing to `z0000000/joy` topic, how the callback that handles the joystick message work by printing some debug text in the callback function.
++
++### Q: List of recommanded plugin for vscode:
++
++* [C/C++ tools](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools) : Add C++ language support to visual studio code.
++* [Cmake tools](https://marketplace.visualstudio.com/items?itemName=vector-of-bool.cmake-tools) : Provides configuration info to power the code completion feature of C/C++ tools.
++* [ROS](https://marketplace.visualstudio.com/items?itemName=ms-iot.vscode-ros) : Provide some ros specific tools.
++* [Gitlens](https://marketplace.visualstudio.com/items?itemName=eamodio.gitlens) : Additional git features to complement features built into vscode.
++
++If you encountered any problems and figured out a fix to it, let us know and we can add it to the FAQ.
+-- 
+2.17.1
+
+
+From 2c1242ea4113bdd4a4eecc2c62e2747f26627e49 Mon Sep 17 00:00:00 2001
+From: Zhihao Zhang <zhihao.zhang1@unsw.edu.au>
+Date: Wed, 30 Oct 2019 15:39:32 +1100
+Subject: [PATCH 6/7] fix a deprecate warning in markerbroadcaster
+
+---
+ src/marker_broadcaster.cpp | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/src/marker_broadcaster.cpp b/src/marker_broadcaster.cpp
+index 2042e1d..6fd8289 100644
+--- a/src/marker_broadcaster.cpp
++++ b/src/marker_broadcaster.cpp
+@@ -23,7 +23,7 @@ MarkerBroadcaster::MarkerBroadcaster(std::string const & zid,
+     std::shared_ptr<std::vector<visualization_msgs::msg::Marker>> shape_list)
+     : rclcpp::Node{helper::marker_node_name(zid)}
+     , marker_publisher_{create_publisher<visualization_msgs::msg::Marker>(
+-          marker_topic(zid))}
++          marker_topic(zid),10)}
+     , timer_{create_wall_timer(
+           refresh_period, [this]() -> void { marker_publisher_callback(); })}
+     , shape_list_{std::move(shape_list)}
+-- 
+2.17.1
+
+
+From 54b61ae47ac8f70a7fc7b85f48f12306700a931c Mon Sep 17 00:00:00 2001
+From: Zhihao Zhang <zhihao.zhang1@unsw.edu.au>
+Date: Wed, 30 Oct 2019 15:44:55 +1100
+Subject: [PATCH 7/7] expand task0 to include how to echo topic to commandline.
+
+---
+ assignment2_spec.md | 4 +++-
+ 1 file changed, 3 insertions(+), 1 deletion(-)
+
+diff --git a/assignment2_spec.md b/assignment2_spec.md
+index c3afd0e..df70de5 100644
+--- a/assignment2_spec.md
++++ b/assignment2_spec.md
+@@ -205,6 +205,7 @@ To launch the joystick driver, in the directory you cloned the git repository:
+ 1. Install the launch script using the command: `colcon build`
+ 2. Source the assignment package using the command: `source install/setup.bash`
+ 3. Launch joy_node using the command: `ros2 launch assignment2 joy_node.py`
++4. A quick way to show message being sent to a topic is use the command `ros2 topic echo /z0000000/joy`. You can check the list of current topic by using the command `ros2 topic list`.
+ 
+ You can change the topic the `joy` message is redirected to by editing `joy_node.py` and 
+ `joy_node_config.yaml` file in the `launch` folder.
+@@ -220,7 +221,7 @@ This task is handled by the class `joystick_listener` in the header `joystick_li
+ * `acceleration_output_` is a `std::shared_ptr` to a publisher used to send the acceleration data to `/z0000000/acceleration`.
+ * `zid_` is a string that contains `z0000000`.
+ * `config_` is a `joystick_config` struct hold your joystick configuration data.
+- * `joy_message_callback` is a method that will be called every time a new message is received by `joystick_input_`, the new message will be passed in as `joy_message` parameter. You need to make sure to register this function when you create `joystick_input_`.
++* `joy_message_callback` is a method that will be called every time a new message is received by `joystick_input_`, the new message will be passed in as `joy_message` parameter. You need to make sure to register this function when you create `joystick_input_`.
+  
+ `joystick_config` struct is defined in `config_parser.hpp` as:
+ ```c++
+@@ -273,6 +274,7 @@ The `geometry_msgs::msg::AccelStamped` message should contain:
+ * Use `zid` as the `header.frame_id`.
+ 
+ You can check the message by echoing it to the terminal by using the command:
++
+ 7. `ros2 topic list` 
+ 8. `ros2 topic echo /z0000000/joy`
+ 
+-- 
+2.17.1
+

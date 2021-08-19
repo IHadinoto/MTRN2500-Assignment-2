@@ -1,0 +1,31 @@
+language: cpp
+
+services:
+  - docker
+  
+compiler:
+  - gcc
+
+jobs:
+  include:
+    - stage: Build and Test
+      script:
+  # Install dependency
+        - docker pull osrf/ros:dashing-desktop
+        - docker run --name dashing -dit -v ${TRAVIS_BUILD_DIR}:/root/src/assignment2 ${IMAGE} osrf/ros:dashing-desktop /bin/bash
+        - docker ps -a
+
+  # Get clang format
+        - docker exec dashing /bin/bash -c 'apt update && apt install clang-format --yes'
+        #- docker exec dashing /bin/bash -c 'apt update && apt install clang-tidy --yes'
+        - docker exec dashing /bin/bash -c 'cd /root/src;git clone https://github.com/UNSW-MTRN2500/ament_lint.git'
+        - docker exec dashing /bin/bash -c 'ls /root/src'
+
+  # Build
+        - docker exec dashing /bin/bash -c 'source `find /opt/ros -maxdepth 2 -name local_setup.bash | sort | head -1`;cd /root/src;colcon build --parallel-workers 4'
+        - docker exec dashing /bin/bash -c 'cd /root/src;touch build/AMENT_IGNORE;touch build/COLCON_IGNORE'       
+        - docker exec dashing /bin/bash -c 'ls /root/src/build'
+
+  # Test 
+        - docker exec dashing /bin/bash -c 'source `find /opt/ros -maxdepth 2 -name local_setup.bash | sort | head -1`;cd /root/src;colcon test --event-handlers console_cohesion+ --packages-select assignment2 --parallel-workers 4'
+        - docker exec dashing /bin/bash -c 'source `find /opt/ros -maxdepth 2 -name local_setup.bash | sort | head -1`;cd /root/src;colcon test-result'
